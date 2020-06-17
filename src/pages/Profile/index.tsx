@@ -110,7 +110,7 @@ const Profile: React.FC = () => {
         });
       }
     },
-    [addToast, history],
+    [updateUser, addToast, history],
   );
 
   const handleAvatarChange = useCallback(
@@ -144,14 +144,7 @@ const Profile: React.FC = () => {
       </header>
 
       <Content>
-        <Form
-          ref={formRef}
-          initialData={{
-            name: user.name,
-            email: user.email,
-          }}
-          onSubmit={handleSubmit}
-        >
+        <Form ref={formRef} initialData={user} onSubmit={handleSubmit}>
           <AvatarInput>
             <img src={user.avatar_url} alt={user.name} />
             <label htmlFor="avatar">
